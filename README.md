@@ -11,6 +11,77 @@ Requirements
 * Python LDAP module (http://www.python-ldap.org)
 
 
+Output examples
+---------------
+
+Default search result:
+
+    $ pbook john
+    First name: John
+     Last name: Doe
+        E-mail: john.doe@example.com
+     Telephone: +44123456789
+                123
+         Title: Placeholder name
+          City: London
+     User name: jdoe
+
+Default search results using pattern search filter recognition:
+
+    $ pbook 789
+    First name: John
+     Last name: Doe
+        E-mail: john.doe@example.com
+     Telephone: +44123456789
+                123
+         Title: Placeholder name
+          City: London
+     User name: jdoe
+
+Default search result using LDAP field name decoration:
+
+    $ pbook -d john
+          givenName: John
+                 sn: Doe
+               mail: john.doe@example.com
+    telephoneNumber: +44123456789
+                     123
+              title: Placeholder name
+                  l: London
+                uid: jdoe
+
+Search result using custom search filter:
+
+    $ pbook -S 'title=place*'
+    First name: John
+     Last name: Doe
+        E-mail: john.doe@example.com
+     Telephone: +44123456789
+                123
+         Title: Placeholder name
+          City: London
+     User name: jdoe
+
+Search result using the `name` search template:
+
+    $ pbook -s name doe
+    First name: John
+     Last name: Doe
+        E-mail: john.doe@example.com
+     Telephone: +44123456789
+                123
+         Title: Placeholder name
+          City: London
+     User name: jdoe
+
+Search result using the `multicolumn` template:
+
+    $ pbook -t multicolumn john
+     Last name | First name |                         E-mail |            Telephone
+    -----------+------------+--------------------------------+----------------------
+           Doe |       John |           john.doe@example.com |    +44123456789, 123
+
+
 Configuration
 -------------
 
@@ -66,7 +137,7 @@ number:
     [search_pattern]
     (\d{3})=(telephoneNumber=+44123456\1)
 
-Then we can search for a phone number `+44123456123` by executing `pbook 123`.
+Then we can search for a phone number `+44123456789` by executing `pbook 789`.
 
 
 **label**
