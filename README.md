@@ -4,13 +4,6 @@ PBook
 LDAP phone book written in Python.
 
 
-Requirements
-------------
-
-* Python 2.7
-* Python LDAP module (http://www.python-ldap.org)
-
-
 Output examples
 ---------------
 
@@ -80,6 +73,35 @@ Search result using the `multicolumn` template:
      Last name | First name |                         E-mail |            Telephone
     -----------+------------+--------------------------------+----------------------
            Doe |       John |           john.doe@example.com |    +44123456789, 123
+
+
+Requirements
+------------
+
+* Python 2.7
+* Python LDAP module (http://www.python-ldap.org)
+
+
+Installation
+------------
+
+In order to install pbook, just download the code, make sure all dependencies
+are installed (see [Requirements](https://github.com/jtyr/pbook#requirements)
+above) and configure it:
+
+    $ git clone https://github.com/jtyr/pbook.git
+    $ cd pbook
+    $ chmod +x ./pbook
+    $ # edit the pbook.conf file
+    $ ./pbook -c ./pbook.conf jdoe
+
+Or it's possible to use the Python setup script:
+
+    $ git clone https://github.com/jtyr/pbook.git
+    $ cd pbook
+    $ python ./setup.py install
+    $ # edit the /etc/pbook.conf file
+    $ pbook jdoe
 
 
 Configuration
