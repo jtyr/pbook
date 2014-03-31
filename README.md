@@ -93,7 +93,7 @@ above) and configure it:
     $ cd pbook
     $ chmod +x ./pbook
     $ # edit the pbook.conf file
-    $ ./pbook -c ./pbook.conf jdoe
+    $ ./pbook -c ./pbook.conf john
 
 Or it's possible to use the Python setup script:
 
@@ -101,7 +101,7 @@ Or it's possible to use the Python setup script:
     $ cd pbook
     $ python ./setup.py install
     $ # edit the /etc/pbook.conf file
-    $ pbook jdoe
+    $ pbook john
 
 
 Configuration
